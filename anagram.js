@@ -19,4 +19,23 @@ function anagram(str1,str2){
     return true
 }
 
-console.log(anagram('anagram','nagaram'))
+console.log(anagramop('aai','aia'))
+
+//Another Frequency Counter more Optimized
+function anagramOptimized(str1,str2){
+    if(str1.length !== str2.length){
+        return false
+    }
+    let counter = {}
+    for (letter of str1) {
+        counter[letter] ? counter[letter]+=1 : counter[letter]=1
+    }
+    for (letter of str2) {
+        if(counter[letter]){
+           counter[letter]-=1 
+        }else{
+           return false 
+        }
+    }
+    return true
+}
