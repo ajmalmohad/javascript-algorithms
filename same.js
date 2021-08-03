@@ -30,7 +30,7 @@ function same2(normal,squared){
     return true;  
 }
 
-//Optimal Solution - O(n)
+//Optimal Solution - O(n) - Frequency Counter
 function same(normal, squared) {
     if(normal.length !== squared.length){
         return false;
