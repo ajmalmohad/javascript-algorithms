@@ -18,6 +18,7 @@ function maxSubArrayNest(array,number){
 }
 
 //My Sliding Window Approach 
+//Time Complexity O(n)
 function maxSubArray(array,number){
     let maxSum = 0;
     let tempSum = 0;
