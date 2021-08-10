@@ -26,9 +26,9 @@ function collectOdds(arr){
 /**
 for [1,2,3,4,5]
 [1].concat(collectOdds([2,3,4,5]))
-[1].concat(collectOdds([3,4,5]))
-[1,3].concat(collectOdds([4,5]))
-[1,3].concat(collectOdds([5]))
-[1,3,5].concat(collectOdds([]))
+[].concat(collectOdds([3,4,5]))
+[3].concat(collectOdds([4,5]))
+[].concat(collectOdds([5]))
+[5].concat(collectOdds([]))
 [1,3,5]
  */
