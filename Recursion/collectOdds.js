@@ -38,4 +38,6 @@ for [1,2,3,4,5]
 [1,3].concat([5])
 [1,3,5].concat([])
 [1,3,5]
+
+[1].concat([].concat([3].concat([].concat([5].concat([])))))
  */
