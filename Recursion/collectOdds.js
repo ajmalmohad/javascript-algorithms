@@ -22,6 +22,7 @@ function collectOdds(arr){
     newArr = newArr.concat(collectOdds(arr.slice(1)))
     return newArr
 }
+
 /**
 for [1,2,3,4,5]
 [1].concat(collectOdds([2,3,4,5]))
