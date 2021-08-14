@@ -18,10 +18,15 @@ function stringSearchNaive(main,subs) {
 //Time Complexity O(n)
 function stringSearch(main,subs){
     let count = 0;
+    let match = 0;
     for (let i = 0; i < main.length; i++) {
         if(main[i]===subs[count]) count++;
-        else if(count>0) count--;
-        if(count===subs.length) return "Contains"
+        else if(count>0) count=0;
+        if(count===subs.length){
+            count=0;
+            match++;
+        }
     }
+    if(match) return `Contains ${match} Matches`;
     return "Doesnt Contain"
 }
