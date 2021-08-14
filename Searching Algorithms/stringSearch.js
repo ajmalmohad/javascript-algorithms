@@ -6,7 +6,6 @@ function stringSearchNaive(main,subs) {
             let count=1
             for (let j = 1; j < subs.length; j++) {
                 if(subs[j]===main[i+j]) count++;
-
             }
             if(count===subs.length) return "Contains"
         }
