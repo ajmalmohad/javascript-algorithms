@@ -13,7 +13,6 @@ function bubbleSort(arr) {
                 swapped = true;
             }
         }
-        console.log(arr);
         if(!swapped) break;
     }
     return arr
