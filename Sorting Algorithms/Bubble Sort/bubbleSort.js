@@ -6,8 +6,15 @@ function swap(arr,a,b){
 
 function bubbleSort(arr) {
     for (let i=arr.length-1; i>=0; i--) {
-        for (let j=0; j<i; j++) if(arr[j] > arr[j+1]) arr=swap(arr,j,j+1);
+        let swapped = false;
+        for (let j=0; j<i; j++){
+            if(arr[j] > arr[j+1]){
+                arr=swap(arr,j,j+1);
+                swapped = true;
+            }
+        }
+        if(swapped==false)return arr 
     }
     return arr
 }
-console.log(bubbleSort([29,10,8,30,37,14,18,-1,-55]));
+console.log(bubbleSort([1,2,3,4,5,6]));
