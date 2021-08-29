@@ -6,18 +6,12 @@ function swap(arr,a,b){
 
 //My Selection Sort
 function selectionSort(arr) {
-    let start = 0
     for (let i = 0; i < arr.length; i++) {
-        let minIndex = start
-        for (let j = start; j < arr.length; j++) {
-            if(arr[minIndex]>arr[j]){
-                minIndex = j
-            }
-            console.log(arr);
+        let minIndex = i
+        for (let j = i; j < arr.length; j++) {
+            if(arr[minIndex]>arr[j]) minIndex = j
         }
-        arr = swap(arr,start,minIndex)
-        start++
-        console.log(i+1 ,' Pass Complete');
+        arr = swap(arr,i,minIndex);
     }
     return arr
 }
