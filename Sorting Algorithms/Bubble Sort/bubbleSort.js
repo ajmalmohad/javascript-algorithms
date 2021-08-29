@@ -10,4 +10,4 @@ function bubbleSort(arr) {
     }
     return arr
 }
-console.log(bubbleSort([29,10,8,30,37,14,18]));
+console.log(bubbleSort([29,10,8,30,37,14,18,-1,-55]));
