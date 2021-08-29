@@ -11,7 +11,7 @@ function selectionSort(arr) {
         for (let j = i; j < arr.length; j++) {
             if(arr[minIndex]>arr[j]) minIndex = j
         }
-        arr = swap(arr,i,minIndex);
+        if(minIndex!==i) arr=swap(arr,i,minIndex);
     }
     return arr
 }
