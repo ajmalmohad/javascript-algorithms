@@ -13,8 +13,7 @@ function bubbleSort(arr) {
                 swapped = true;
             }
         }
-        if(swapped==false)return arr 
-        console.log(arr);
+        if(swapped==false)return arr;
     }
     return arr
 }
