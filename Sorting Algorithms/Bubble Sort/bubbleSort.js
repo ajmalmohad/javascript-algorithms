@@ -1,9 +1,11 @@
-//Utility
+//Utility Swap
 function swap(arr,a,b){
     [arr[a],arr[b]] = [arr[b],arr[a]]
     return arr
 }
 
+//Optimized bubble sort
+//Time Complexity - O(n^2)
 function bubbleSort(arr) {
     for (let i=arr.length-1; i>=0; i--) {
         let swapped = false;
