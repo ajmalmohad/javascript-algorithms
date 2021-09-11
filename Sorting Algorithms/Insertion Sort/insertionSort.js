@@ -1,15 +1,13 @@
 //My Insertion Sort
+console.log(insertionSort([5,10,2,-1,9]));
+
 function insertionSort(arr) {
-    for (let i = arr.length-1; i >=0; i--) {
-        for (let j=i; j>=0; j--) {
-            if(arr[i]<arr[j] && (arr[i]>arr[j-1] || j==0)){
-                let elem = arr.splice(i,1);
-                arr.splice(j,0,elem[0])
-                i++;
-            }
+    for (let i = 1; i < arr.length; i++) {
+        let currentVal = arr[i];
+        for (var j = i-1; j>=0 && arr[j]>currentVal; j--) {
+            arr[j+1]=arr[j]
         }
+        arr[j+1] = currentVal
     }
     return arr
 }
-
-console.log(insertionSort([5,10,2,-1,9]));
