@@ -1,0 +1,22 @@
+{
+  "name": "dsa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest Mergesort.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajmalmohad/javascript-algorithms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajmalmohad/javascript-algorithms/issues"
+  },
+  "homepage": "https://github.com/ajmalmohad/javascript-algorithms#readme",
+  "devDependencies": {
+    "jest": "^27.1.1"
+  }
+}
