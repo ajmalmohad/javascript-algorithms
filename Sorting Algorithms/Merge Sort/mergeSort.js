@@ -21,13 +21,8 @@ function merge(arr1,arr2){
         if(arr1[i]<arr2[j]){
             results.push(arr1[i])
             i++
-        }else if(arr1[i]>arr2[j]){
-            results.push(arr2[j])
-            j++
         }else{
-            results.push(arr1[i])
             results.push(arr2[j])
-            i++
             j++
         }
     }
