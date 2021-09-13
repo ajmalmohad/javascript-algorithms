@@ -1,6 +1,12 @@
 //Merge Sort
 function mergeSort(arr) {
-    return arr
+    if(arr.length <= 1) return arr
+
+    let mid = Math.floor(arr.length / 2)
+    let left = mergeSort(arr.slice(0, mid))
+    let right = mergeSort(arr.slice(mid))  
+
+    return merge(left,right)
 }
 
 //Export for Test Driven Development
@@ -18,21 +24,22 @@ function merge(arr1,arr2){
         }else if(arr1[i]>arr2[j]){
             results.push(arr2[j])
             j++
-        }else if(arr1[i]===arr2[j]){
+        }else{
             results.push(arr1[i])
             results.push(arr2[j])
             i++
             j++
         }
+    }
 
-        if(i===arr1.length){
-            for (let k = j; k < arr2.length; k++) results.push(arr2[k])
-        }else if(j===arr2.length){
-            for (let k = i; k < arr1.length; k++) results.push(arr1[k])
-        }
+    while(i<arr1.length){
+        results.push(arr1[i])
+        i++
+    }
+    while(j<arr2.length){
+        results.push(arr2[j])
+        j++
     }
 
     return results
 }
-
-console.log(merge([1,2,5,6],[-1,3,4,7,8,9,10]));

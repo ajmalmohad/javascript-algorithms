@@ -17,5 +17,5 @@ test("Float Sorting", () => {
 });
 
 test("Empty Array", () => {
-    expect(mergeSort([])).toBeNull();
+    expect(mergeSort([])).toStrictEqual([]);
 });
