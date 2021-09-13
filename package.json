@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest Mergesort.test.js"
+    "test": "jest quicksort.test.js"
   },
   "repository": {
     "type": "git",
