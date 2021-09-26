@@ -13,10 +13,12 @@ function radixSort(arr) {
 
 // Helpers
 /**
- * @function mostDigits -> Number of Digits in Largest Numbers in Array
- * @function digitCount -> Number of Digits in a Number
- * @function getDigit -> Digit at given place
- * @function getDigit2 -> Digit at given place
+ * @function mostDigits -> Number of Digits in Largest Numbers in Array returned
+ * @function digitCount -> Number of Digits in a Number returned
+ * @function getDigit -> Digit at given place returned
+ * @function getDigit2 -> Digit at given place returned
+ * @function seperateNegatives -> Negative and Positive Seperate Arrays returned
+ * @function radixSortwithNegatives -> Sorts Arrays Including Negative Numbers
  */
 
 function mostDigits(arr) {
@@ -41,5 +43,23 @@ function getDigit2(num,i) {
     return num[i] ? parseInt(num[i]) : 0
 }
 
+function seperateNegatives(arr){
+    let arrPos = []
+    let arrNeg = []
+    for (let i = 0; i < arr.length; i++) {
+        if(arr[i]<0){
+            arrNeg.push(arr[i])
+        }else{
+            arrPos.push(arr[i])
+        }
+    }
+    return [arrPos,arrNeg]
+}
 
-console.log(radixSort([24,1054654,100,4,3454,0,35,4546546]));
+function radixSortwithNegatives(arr){
+    [arrPos,arrNeg] = seperateNegatives(arr)
+    arrPos = radixSort(arrPos)
+    arrNeg = radixSort(arrNeg).reverse()
+    let result = arrNeg.concat(arrPos)
+    return result
+}
