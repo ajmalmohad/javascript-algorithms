@@ -1,4 +1,12 @@
 function radixSort(arr) {
+    let maxDigits = mostDigits(arr)
+    for (let k=0; k<maxDigits; k++) {
+        let buckets = Array.from({length:10},()=>[])
+        for (let j = 0; j < arr.length; j++) {
+            buckets[getDigit(arr[j],k)].push(arr[j]);
+        }
+        arr = [].concat(...buckets)
+    }
     return arr
 }
 
@@ -32,3 +40,6 @@ function getDigit2(num,i) {
     num = num.toString().split("").reverse()
     return num[i] ? parseInt(num[i]) : 0
 }
+
+
+console.log(radixSort([24,1054654,100,4,3454,0,35,4546546]));
