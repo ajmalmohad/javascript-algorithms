@@ -16,9 +16,11 @@ class SinglyLinkedList{
     push(data){
         if(this.head === null){
             this.tail = this.head =  new Node(data)
+            this.length++
         }else{
             this.tail.next = new Node(data)
             this.tail = this.tail.next
+            this.length++
         }
         return this.head
     }
