@@ -50,6 +50,7 @@ class SinglyLinkedList{
         let popped = this.head
         this.head = this.head.next
         this.length--
+        if(this.length===0) this.tail = null;
         return popped
     }
 
@@ -69,5 +70,5 @@ class SinglyLinkedList{
 var ll = new SinglyLinkedList()
 ll.push(10);
 ll.push(20);
-ll.push(30)
-ll.print();
+ll.push(30);
+console.log(ll);
