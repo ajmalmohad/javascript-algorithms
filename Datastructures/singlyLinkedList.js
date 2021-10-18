@@ -46,14 +46,11 @@ class SinglyLinkedList{
 
     //Remove from the head
     shift(){
-        if(this.head){
-            let popped = this.head
-            this.head = this.head.next
-            this.length--
-            return popped
-        }else{
-            return undefined
-        }
+        if(!this.head) return undefined;
+        let popped = this.head
+        this.head = this.head.next
+        this.length--
+        return popped
     }
 
     //Print Linked List
