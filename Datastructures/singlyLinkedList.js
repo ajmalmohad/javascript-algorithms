@@ -27,26 +27,33 @@ class SinglyLinkedList{
 
     //Remove the tail
     pop(){
-        if(!this.head) return undefined;
-        let slow = this.head;
-        let fast = slow;
+        if(!this.head) return undefined
+        let slow = this.head
+        let fast = slow
         while(fast.next){
-            slow = fast;
-            fast = fast.next;
+            slow = fast
+            fast = fast.next
         }
-        slow.next = null;
-        this.tail = slow;
-        this.length--;
+        slow.next = null
+        this.tail = slow
+        this.length--
         if(this.length===0){
-            this.head = null;
-            this.tail = null;
+            this.head = null
+            this.tail = null
         }
-        return fast;
+        return fast
     }
 
     //Remove from the head
     shift(){
-        if(this.head) this.head = this.head.next;
+        if(this.head){
+            let popped = this.head
+            this.head = this.head.next
+            this.length--
+            return popped
+        }else{
+            return undefined
+        }
     }
 
     //Print Linked List
@@ -65,5 +72,5 @@ class SinglyLinkedList{
 var ll = new SinglyLinkedList()
 ll.push(10);
 ll.push(20);
-ll.push(30);
+ll.push(30)
 ll.print();
