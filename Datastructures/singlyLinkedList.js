@@ -59,14 +59,13 @@ class SinglyLinkedList{
         if(!this.head){
             this.head = new Node(data)
             this.tail = this.head
-            this.length++
-            return this.head
+        }else{
+            let newnode = new Node(data)
+            newnode.next = this.head
+            this.head = newnode
         }
-        let newnode = new Node(data)
-        newnode.next = this.head
-        this.head = newnode
         this.length++
-        return this.head
+        return this
     }
 
     //Print Linked List
@@ -83,6 +82,3 @@ class SinglyLinkedList{
 }
 
 var ll = new SinglyLinkedList()
-ll.push(10);
-ll.unshift(8);
-console.log(ll);
