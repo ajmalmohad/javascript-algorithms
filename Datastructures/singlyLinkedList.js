@@ -54,6 +54,21 @@ class SinglyLinkedList{
         return popped
     }
 
+    //Add to the head
+    unshift(data){
+        if(!this.head){
+            this.head = new Node(data)
+            this.tail = this.head
+            this.length++
+            return this.head
+        }
+        let newnode = new Node(data)
+        newnode.next = this.head
+        this.head = newnode
+        this.length++
+        return this.head
+    }
+
     //Print Linked List
     print(){
         let node = this.head
@@ -69,6 +84,5 @@ class SinglyLinkedList{
 
 var ll = new SinglyLinkedList()
 ll.push(10);
-ll.push(20);
-ll.push(30);
+ll.unshift(8);
 console.log(ll);
