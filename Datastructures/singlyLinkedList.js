@@ -87,6 +87,27 @@ class SinglyLinkedList{
         return true
     }
 
+    //Inserts Value at given Index
+    insert(index,value){
+        if(index<0 || index>this.length){
+            return false
+        }
+        if(index===0){
+            this.unshift(value)
+            return true
+        }
+        if(index===this.length){
+            this.push(value)
+            return true
+        }
+        let newnode = new Node(value)
+        let prev = this.get(index-1)
+        newnode.next = prev.next
+        prev.next = newnode
+        this.length++
+        return true
+    }
+
     //Print Linked List
     print(){
         let node = this.head
