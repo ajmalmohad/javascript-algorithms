@@ -89,9 +89,7 @@ class SinglyLinkedList{
 
     //Inserts Value at given Index
     insert(index,value){
-        if(index<0 || index>this.length){
-            return false
-        }
+        if(index<0 || index>this.length) return false
         if(index===0){
             this.unshift(value)
             return true
@@ -106,6 +104,18 @@ class SinglyLinkedList{
         prev.next = newnode
         this.length++
         return true
+    }
+
+    //Removes Node at given Index
+    remove(index){
+        if(index<0 || index>=this.length) return false
+        if(index===0) return this.shift()
+        if(index===this.length-1) return this.pop()
+        let prev = this.get(index-1)
+        let removed = prev.next
+        prev.next = removed.next
+        this.length--
+        return removed
     }
 
     //Print Linked List
@@ -125,4 +135,6 @@ var ll = new SinglyLinkedList()
 ll.push(10)
 ll.push(20)
 ll.push(30)
+ll.push(40)
+ll.remove(1)
 ll.print()
