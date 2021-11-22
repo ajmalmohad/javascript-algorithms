@@ -74,25 +74,17 @@ class SinglyLinkedList{
             return null
         }else{
             let node = this.head
-            for (let i = 0; i < index; i++) {
-                node = node.next
-            }
-            return node.data
+            for (let i = 0; i < index; i++) node = node.next
+            return node
         }
     }
 
     //Updates Value at given Index
     set(index,value){
-        if(index>=this.length || index<0){
-            return false
-        }else{
-            let node = this.head
-            for (let i = 0; i < index; i++) {
-                node = node.next
-            }
-            node.data = value
-            return true
-        }
+        let node = this.get(index);
+        if(!node) return false
+        node.data = value;
+        return true
     }
 
     //Print Linked List
@@ -112,6 +104,4 @@ var ll = new SinglyLinkedList()
 ll.push(10)
 ll.push(20)
 ll.push(30)
-ll.print()
-ll.set(2,80)
 ll.print()
