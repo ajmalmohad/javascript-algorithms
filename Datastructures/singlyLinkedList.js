@@ -118,6 +118,21 @@ class SinglyLinkedList{
         return removed
     }
 
+    //Reverses Linked List
+    reverse(){
+        let prev = null
+        let node = this.head
+        let next = null
+        while(node){
+            next = node.next
+            node.next = prev
+            prev = node
+            node = next
+        }
+        this.tail = this.head
+        this.head = prev
+    }
+
     //Print Linked List
     print(){
         let node = this.head
@@ -136,5 +151,6 @@ ll.push(10)
 ll.push(20)
 ll.push(30)
 ll.push(40)
-ll.remove(1)
+
+ll.reverse()
 ll.print()
