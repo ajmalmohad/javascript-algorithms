@@ -60,6 +60,21 @@ class DoublyLinkedList{
         return removed;
     }
 
+    //Add to First
+    unshift(value){
+        let node = new Node(value)
+        if(this.length === 0){
+            this.head = node;
+            this.tail = node;
+        }else{
+            node.next = this.head;
+            this.head.prev = node;
+            this.head = node;
+        }
+        this.length++;
+        return this;
+    }
+
     //Print Linked List
     print(){
         let node = this.head
@@ -74,9 +89,8 @@ class DoublyLinkedList{
 }
 
 let dll = new DoublyLinkedList()
+dll.unshift(10)
+dll.unshift(100)
 dll.push(10)
-dll.push(20)
-dll.push(30)
-console.log(dll.shift());
-console.log(dll.shift());
-console.log(dll);
+dll.unshift(80)
+dll.print()
