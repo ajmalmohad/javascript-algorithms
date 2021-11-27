@@ -13,7 +13,7 @@ class DoublyLinkedList{
         this.length = 0;
     }
 
-    //Push at Last
+    //Add at Last
     push(value){
         let node = new Node(value)
         if(this.length === 0){
@@ -28,7 +28,7 @@ class DoublyLinkedList{
         return this;
     }
 
-    //Pop from Last
+    //Remove from Last
     pop(){
         if(this.length === 0) return null;
         let popped = this.tail;
@@ -42,6 +42,22 @@ class DoublyLinkedList{
         }
         this.length--;
         return popped;
+    }
+
+    //Remove from First
+    shift(){
+        if(this.length === 0) return null;
+        let removed = this.head;
+        if(this.length === 1){
+            this.head = null;
+            this.tail = null;
+        }else{
+            this.head = removed.next;
+            this.head.prev = null;
+            removed.next = null;
+        }
+        this.length--;
+        return removed;
     }
 
     //Print Linked List
@@ -61,5 +77,6 @@ let dll = new DoublyLinkedList()
 dll.push(10)
 dll.push(20)
 dll.push(30)
-console.log(dll.pop());
-dll.print()
+console.log(dll.shift());
+console.log(dll.shift());
+console.log(dll);
