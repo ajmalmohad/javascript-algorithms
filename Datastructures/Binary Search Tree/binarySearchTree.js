@@ -38,6 +38,7 @@ class BinarySearchTree{
 
     find(value, node=this.root){
         if(this.root === null) return false;
+        if(!node) return false;
         if(value === node.data) return node;
         if(value < node.data){
             return this.find(value, node.left);
@@ -55,3 +56,4 @@ bst.insert(12);
 bst.insert(3);
 bst.insert(9);
 bst.insert(11);
+console.log(bst.find(11))
