@@ -75,6 +75,7 @@ class DoublyLinkedList{
         return this;
     }
 
+    //Get Node using Index
     get(index){
         if(index<0 || index>= this.length) return null;
         if(index > this.length/2){
@@ -96,6 +97,7 @@ class DoublyLinkedList{
         }
     }
 
+    //Set Value of Node using Index
     set(index,value){
         let node  = this.get(index);
         if(node !== null){
@@ -103,6 +105,30 @@ class DoublyLinkedList{
             return true;
         }
         return false;
+    }
+
+    //Insert node at specified Index
+    insert(index,value){
+        if(index<0 || index>this.length){
+            return false;
+        }
+        if(index===0){
+            this.unshift(value);
+            return true;
+        }
+        if(index===this.length){
+            this.push(value);
+            return true;
+        }
+        let node = new Node(value);
+        let previous = this.get(index-1);
+        let next = this.get(index);
+        previous.next = node;
+        next.prev = node;
+        node.next = next;
+        node.prev = previous;
+        this.length++;
+        return true;
     }
 
     //Print Linked List
@@ -125,4 +151,5 @@ dll.push(30)
 dll.push(40)
 dll.push(50)
 dll.push(60)
+dll.insert(3,70)
 dll.print()
