@@ -75,6 +75,36 @@ class DoublyLinkedList{
         return this;
     }
 
+    get(index){
+        if(index<0 || index>= this.length) return null;
+        if(index > this.length/2){
+            let node = this.tail; //Traverse from Tail
+            let count = this.length-1;
+            while(count!==index){
+                node = node.prev;
+                count--;
+            }
+            return node
+        }else{
+            let node = this.head; //Traverse from Head
+            let count = 0;
+            while(count!==index){
+                node = node.next;
+                count++;
+            }
+            return node
+        }
+    }
+
+    set(index,value){
+        let node  = this.get(index);
+        if(node !== null){
+            node.data = value;
+            return true;
+        }
+        return false;
+    }
+
     //Print Linked List
     print(){
         let node = this.head
@@ -89,8 +119,10 @@ class DoublyLinkedList{
 }
 
 let dll = new DoublyLinkedList()
-dll.unshift(10)
-dll.unshift(100)
 dll.push(10)
-dll.unshift(80)
+dll.push(20)
+dll.push(30)
+dll.push(40)
+dll.push(50)
+dll.push(60)
 dll.print()
