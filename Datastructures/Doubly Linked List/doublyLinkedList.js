@@ -121,9 +121,25 @@ class DoublyLinkedList{
         next.prev = node;
         node.next = next;
         node.prev = previous;
-        
+
         this.length++;
         return true;
+    }
+
+    //Remove node at specified Index
+    remove(index){
+        if(index<0 || index>=this.length) return false;
+        if(index===0) return this.shift();
+        if(index===this.length-1) return this.pop();
+
+        let node = this.get(index);
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+
+        node.prev = null;
+        node.next = null;
+        this.length--;
+        return node;
     }
 
     //Print Linked List
@@ -146,5 +162,5 @@ dll.push(30)
 dll.push(40)
 dll.push(50)
 dll.push(60)
-dll.insert(6,70)
+console.log(dll.remove(4));
 dll.print()
