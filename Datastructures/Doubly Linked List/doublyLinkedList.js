@@ -109,24 +109,19 @@ class DoublyLinkedList{
 
     //Insert node at specified Index
     insert(index,value){
-        if(index<0 || index>this.length){
-            return false;
-        }
-        if(index===0){
-            this.unshift(value);
-            return true;
-        }
-        if(index===this.length){
-            this.push(value);
-            return true;
-        }
+        if(index<0 || index>this.length) return false;
+        if(index===0) return !!this.unshift(value);
+        if(index===this.length) return !!this.push(value);
+
         let node = new Node(value);
         let previous = this.get(index-1);
-        let next = this.get(index);
+        let next = previous.next;
+
         previous.next = node;
         next.prev = node;
         node.next = next;
         node.prev = previous;
+        
         this.length++;
         return true;
     }
@@ -151,5 +146,5 @@ dll.push(30)
 dll.push(40)
 dll.push(50)
 dll.push(60)
-dll.insert(3,70)
+dll.insert(6,70)
 dll.print()
