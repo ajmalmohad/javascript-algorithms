@@ -60,6 +60,20 @@ class BinarySearchTree{
         return data
     }
 
+    dfs(){
+        let node = this.root;
+        let data = []
+        let stack = []
+        stack.push(node)
+        while(stack.length){
+            node = stack.pop()
+            data.push(node.data)
+            if(node.right) stack.push(node.right)
+            if(node.left) stack.push(node.left)
+        }
+        return data
+    }
+
     }
 
 let bst = new BinarySearchTree();
@@ -69,4 +83,4 @@ bst.insert(15);
 bst.insert(3);
 bst.insert(8);
 bst.insert(20);
-console.log(bst.bfs())
+console.log(bst.dfs())
