@@ -5,11 +5,10 @@ class Node{
         this.right = null;
     }
 }
-let COUNT = 10;
+
 class BinarySearchTree{
     constructor(){
         this.root = null;
-        this.length = 0;
     }
 
     insert(value, node=this.root){
@@ -46,14 +45,28 @@ class BinarySearchTree{
             return this.find(value, node.right);
         }
     }
- 
+
+    bfs(){
+        let node = this.root;
+        let data = []
+        let queue = []
+        queue.push(node)
+        while(queue.length){
+            node = queue.shift()
+            data.push(node.data)
+            if(node.left) queue.push(node.left)
+            if(node.right) queue.push(node.right)
+        }
+        return data
+    }
+
     }
 
 let bst = new BinarySearchTree();
 bst.insert(10);
-bst.insert(8);
-bst.insert(12);
+bst.insert(6);
+bst.insert(15);
 bst.insert(3);
-bst.insert(9);
-bst.insert(11);
-console.log(bst.find(11))
+bst.insert(8);
+bst.insert(20);
+console.log(bst.bfs())
