@@ -60,7 +60,7 @@ class BinarySearchTree{
         return data
     }
 
-    dfs(){
+    dfsPreorderIterative(){
         let node = this.root;
         let data = []
         let stack = []
@@ -74,6 +74,17 @@ class BinarySearchTree{
         return data
     }
 
+    dfsPreorderRecursive(){
+        let data = []
+        function traverse(node){
+            data.push(node.data);
+            if(node.left) traverse(node.left)
+            if(node.right) traverse(node.right)
+        }
+        traverse(this.root)
+        return data
+    }
+
     }
 
 let bst = new BinarySearchTree();
@@ -83,4 +94,5 @@ bst.insert(15);
 bst.insert(3);
 bst.insert(8);
 bst.insert(20);
-console.log(bst.dfs())
+
+console.log(bst.dfsPreorderIterative())
