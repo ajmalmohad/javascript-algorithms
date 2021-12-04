@@ -14,6 +14,7 @@ class MaxBinaryHeap{
     }
     extractMax(){
         let removed = this.values.shift()
+        if(!this.values.length) return removed
         this.values.unshift(this.values.pop())
         let current = 0;
         let largestChild;
@@ -35,7 +36,6 @@ class MaxBinaryHeap{
         }
         return removed
     }
-    
 }
 
 let msh = new MaxBinaryHeap()
@@ -50,8 +50,6 @@ msh.insert(90)
 msh.insert(3)
 msh.insert(36)
 console.log(msh.values)
-msh.extractMax()
-msh.extractMax()
 msh.extractMax()
 msh.extractMax()
 msh.extractMax()
