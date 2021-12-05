@@ -37,9 +37,7 @@ class HashTable{
     }
 }
 
-let ht = new HashTable(53);
+let ht = new HashTable(4);
 ht.set("ajmal",100)
 ht.set("lamja",500)
 ht.set("hello",100)
-ht.set("clear","Hi")
-console.log(ht.get("clear"))
