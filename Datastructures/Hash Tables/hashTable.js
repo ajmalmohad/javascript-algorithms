@@ -24,9 +24,7 @@ class HashTable{
     }
     get(key){
         let index = this._hash(key)
-        if(this.table[index]==null){
-            return null
-        }else{
+        if(this.table[index]){
             for (let i = 0; i < this.table[index].length; i++) {
                 if(this.table[index][i].key === key){
                     return this.table[index][i]
@@ -41,3 +39,4 @@ let ht = new HashTable();
 ht.set("ajmal",100)
 ht.set("lamja",500)
 ht.set("hello",100)
+console.log(ht.get("ajmal"))
