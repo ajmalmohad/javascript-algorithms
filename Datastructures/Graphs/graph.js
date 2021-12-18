@@ -34,6 +34,16 @@ class Graph{
             console.log('Vertex Doesn\'t Exist')
         }
     }
+    removeVertex(vertex){
+        if(this.adjacencyList[vertex]){
+            this.adjacencyList[vertex].forEach(v=>{
+                this.adjacencyList[v].splice(this.adjacencyList[v].indexOf(vertex),1)
+            })
+            delete this.adjacencyList[vertex]
+        }else{
+            console.log("Vertex Doesn\'t Exist")
+        }
+    }
 }
 
 gph = new Graph()
@@ -42,6 +52,6 @@ gph.addVertex("Dallas")
 gph.addVertex("Aspen")
 gph.addEdge("Tokyo","Dallas")
 gph.addEdge("Dallas","Aspen")
-gph.addEdge("Aspen","Tokyo")
-gph.removeEdge("Aspen","Tokyo")
+gph.addEdge("Tokyo","Aspen")
+gph.removeVertex("Tokyo")
 console.log(gph.adjacencyList)
