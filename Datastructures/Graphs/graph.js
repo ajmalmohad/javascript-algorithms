@@ -46,7 +46,7 @@ class Graph{
         }
     }
 
-    dfs(start){
+    dfsRecursive(start){
         let result = [];
         let visited = {};
         let helper = (vertex) => {
