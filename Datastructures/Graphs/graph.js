@@ -34,6 +34,7 @@ class Graph{
             console.log('Vertex Doesn\'t Exist')
         }
     }
+
     removeVertex(vertex){
         if(this.adjacencyList[vertex]){
             this.adjacencyList[vertex].forEach(v=>{
@@ -44,14 +45,36 @@ class Graph{
             console.log("Vertex Doesn\'t Exist")
         }
     }
+
+    dfs(start){
+        let result = [];
+        let visited = {};
+        let vertices = this.adjacencyList;
+        (function helper(vertex){
+            if(!vertex) return null
+            visited[vertex] = true
+            result.push(vertex)
+            vertices[vertex].forEach((neighbour)=>{
+                if(!visited[neighbour]) return helper(neighbour)
+            })
+        })(start)
+        return result
+    }
+
 }
 
 gph = new Graph()
-gph.addVertex("Tokyo")
-gph.addVertex("Dallas")
-gph.addVertex("Aspen")
-gph.addEdge("Tokyo","Dallas")
-gph.addEdge("Dallas","Aspen")
-gph.addEdge("Tokyo","Aspen")
-gph.removeVertex("Aspen")
-console.log(gph.adjacencyList)
+gph.addVertex("A")
+gph.addVertex("B")
+gph.addVertex("C")
+gph.addVertex("D")
+gph.addVertex("E")
+gph.addVertex("F")
+gph.addEdge("A","B")
+gph.addEdge("B","D")
+gph.addEdge("D","F")
+gph.addEdge("F","E")
+gph.addEdge("E","C")
+gph.addEdge("C","A")
+gph.addEdge("D","E")
+console.log(gph.dfs("A"))
