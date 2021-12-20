@@ -49,15 +49,15 @@ class Graph{
     dfs(start){
         let result = [];
         let visited = {};
-        let vertices = this.adjacencyList;
-        (function helper(vertex){
+        let helper = (vertex) => {
             if(!vertex) return null
             visited[vertex] = true
             result.push(vertex)
-            vertices[vertex].forEach((neighbour)=>{
+            this.adjacencyList[vertex].forEach((neighbour)=>{
                 if(!visited[neighbour]) return helper(neighbour)
             })
-        })(start)
+        }
+        helper(start)
         return result
     }
 
