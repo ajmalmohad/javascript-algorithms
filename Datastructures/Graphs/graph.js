@@ -61,6 +61,22 @@ class Graph{
         return result
     }
 
+    dfsIterative(start){
+        let stack = []
+        let visited = {}
+        let result = []
+        stack.push(start)
+        while(stack.length){
+            let vertex = stack.pop()
+            if(!visited[vertex]){
+                visited[vertex] = true
+                result.push(vertex)
+                stack.push(...this.adjacencyList[vertex])
+            }
+        }
+        return result
+    }
+
 }
 
 gph = new Graph()
@@ -77,4 +93,4 @@ gph.addEdge("F","E")
 gph.addEdge("E","C")
 gph.addEdge("C","A")
 gph.addEdge("D","E")
-console.log(gph.dfs("A"))
+console.log(gph.dfsIterative("A"))
