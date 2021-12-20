@@ -62,20 +62,46 @@ class Graph{
     }
 
     dfsIterative(start){
-        let stack = []
+        let vertex
+        let stack = [start]
         let visited = {}
         let result = []
-        stack.push(start)
+
+        visited[start] = true
         while(stack.length){
-            let vertex = stack.pop()
-            if(!visited[vertex]){
-                visited[vertex] = true
-                result.push(vertex)
-                stack.push(...this.adjacencyList[vertex])
-            }
+            vertex = stack.pop()
+            result.push(vertex)
+            this.adjacencyList[vertex].forEach((neighbour)=>{
+                if(!visited[neighbour]){
+                    visited[neighbour] = true
+                    stack.push(neighbour)
+                }
+            })
         }
         return result
     }
+
+    bfsIterative(start){
+        let vertex
+        let queue = [start]
+        let visited = {}
+        let result = []
+
+        visited[start] = true
+        while(queue.length){
+            console.log(queue)
+            vertex = queue.shift()
+            result.push(vertex)
+            this.adjacencyList[vertex].forEach((neighbour)=>{
+                if(!visited[neighbour]){
+                    visited[neighbour] = true
+                    queue.push(neighbour)
+                }
+            })
+        }
+        return result
+    }
+
 
 }
 
@@ -93,4 +119,4 @@ gph.addEdge("F","E")
 gph.addEdge("E","C")
 gph.addEdge("C","A")
 gph.addEdge("D","E")
-console.log(gph.dfsIterative("A"))
+console.log(gph.bfsIterative("A"))
