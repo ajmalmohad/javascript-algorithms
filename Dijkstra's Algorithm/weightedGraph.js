@@ -74,6 +74,7 @@ class WeightedGraph{
     }
 
     dijkstra(start,finish){
+        let path = []
         const nodes = new PriorityQueue()
         const distances = {}
         const previous = {}
@@ -94,8 +95,30 @@ class WeightedGraph{
 
         while(nodes.values.length){
             smallest = nodes.dequeue().value
-            console.log(smallest)
+            if(smallest === finish){
+                while(smallest){
+                    path.push(smallest)
+                    smallest = previous[smallest]
+                }
+                break;
+            }
+
+            if(smallest || distances[smallest]!==Infinity){
+                for(let neighbour in this.adjacencyList[smallest]){
+                    let nextNode = this.adjacencyList[smallest][neighbour]
+                    
+                    let candidate = distances[smallest] + nextNode.weight
+
+                    let nextNeighbour = nextNode.node;
+                    if(candidate < distances[nextNeighbour]){
+                        distances[nextNeighbour] = candidate
+                        previous[nextNeighbour] = smallest
+                        nodes.enqueue(nextNeighbour, candidate)
+                    }
+                }
+            }
         }
+        return path.reverse()
     }
 
 }
@@ -116,4 +139,4 @@ pgh.addEdge("C","F",4)
 pgh.addEdge("D","F",1)
 pgh.addEdge("E","F",1)
 // console.log(pgh.adjacencyList)
-pgh.dijkstra('A','B')
+console.log(pgh.dijkstra('A','F'))
