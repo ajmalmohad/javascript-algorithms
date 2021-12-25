@@ -77,6 +77,7 @@ class WeightedGraph{
         const nodes = new PriorityQueue()
         const distances = {}
         const previous = {}
+        let smallest
 
         //Initial State
         for(let vertex in this.adjacencyList){
@@ -91,7 +92,10 @@ class WeightedGraph{
             previous[vertex] = null
         }
 
-        
+        while(nodes.values.length){
+            smallest = nodes.dequeue().value
+            console.log(smallest)
+        }
     }
 
 }
